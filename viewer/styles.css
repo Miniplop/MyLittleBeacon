@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* CSS Document */
+
+*[data-visible=false]{
+	display: none;
+}
+
+html{
+	height:100%;
+	width:100%;
+	background-color:#5B93BC;
+	background-position:center 0px;
+	background-size:100%;
+
+}
+
+body{
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	font-family: 'Roboto', sans-serif;
+	font-size:12pt;
+	margin:0px;
+	background-attachment: scroll;
+	background-repeat: repeat-y;
+	width:100%;
+	height:100%;
+
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: flex-start;
+
+	background-image: url("assets/images/icon.png");
+	background-size: 47px auto;
+	background-repeat: no-repeat;
+	background-position: 1% 99%;
+
+}
+
+body[data-connected=false]{
+	justify-content: center;
+}
+
+body[data-connected=false] #connect{
+	display: block;
+}
+
+body[data-connected=false] #game{
+	display: none;
+}
+
+body[data-connected=true][data-game-over=true]{
+	justify-content:center;
+}
+
+body[data-connected=true][data-game-over=true] #game{
+	display: none;
+}
+
+body[data-connected=true][data-game-over=true] #game_over{
+	display: block;
+}
+
+body[data-connected=true][data-game-over=false] #game_over{
+	display: none;
+}
+
+#connect{
+	text-align: center;
+	font-size: 3vw;
+	display: none;
+}
+
+#word{
+	text-align: center;
+	padding-top: 5vh;
+}
+
+#word h3{
+	font-size: 5vh;
+	margin: 0px;
+	padding: 0px;
+	color: rgba(0, 0, 0, 0.45);
+}
+
+#word h1, #game_over h1{
+	color: #FFF;
+	font-size: 15vh;
+	margin: 0px;
+	padding: 0px;
+	text-shadow: 0px 2px 2px #000;
+	text-transform: uppercase;
+}
+
+#user_word{
+	text-align: center;
+}
+
+#user_word h1{
+	text-transform: uppercase;
+	font-size: 18vh;
+	color: #FFF;
+	text-shadow: 0px 2px 2px #000;
+	letter-spacing: 0.3em;
+}
+
+#user_word h1.correct{
+	color: #89EA89;
+}
+
+#user_word h1.wrong{
+	color: #EC6363;
+}
+
+#completed{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#completed span{
+	margin-right: 20px;
+	margin-bottom: 10px;
+	font-weight: 800;
+	display: inline-block;
+	color: rgba(0,0,0,0.4);
+	text-transform: uppercase;
+}
+
+#time{
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	width: 40px;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.45) none repeat scroll 0% 0%;
+	transition: height ease-in-out 0.5s;
+}
+
+#game_over{
+	text-align:center;
+}
+
+#game_over p{
+	font-weight: 800;
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 3vw;
+}

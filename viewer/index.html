@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Physical Web Project</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100' rel='stylesheet' type='text/css'>
+</head>
+<body data-connected="false" data-game-over="false">
+
+	<div id="connect">
+		Scan for Physical Web beacons to connect to this game!
+	</div>
+
+	<div id="game">
+
+		<div id="word">
+			<h3>Type the word!</h3>
+			<h1 id="current_word">BANANA</h1>
+		</div>
+		<div id="user_word">
+			<h1 id="user_input">B _ _ _ _ _</h1>
+		</div>
+		<div id="completed">
+			<!--<span>Banana</span>-->
+		</div>
+
+		<div id="time">
+
+		</div>
+
+	</div>
+
+	<div id="game_over"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="scripts/words.js"></script>
+<script src="scripts/core.js"></script>
+</body>
+</html>
