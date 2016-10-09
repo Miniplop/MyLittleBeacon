@@ -9,11 +9,10 @@ var __spell_me_WDM = (function(){
 
 	function updateStatus(correct){
 
-		input.value = "";
-
 		if(correct){
 			status.textContent = "CORRECT!";
 			status.setAttribute('class', 'correct');
+			input.value = "";
 		} else {
 			status.textContent = "WRONG!";
 			status.setAttribute('class', 'wrong');
@@ -73,10 +72,10 @@ var __spell_me_WDM = (function(){
 		console.log("Initialised");
 
 		socket = io(window.location.origin);
-		
+
 		socket.emit('player-ready', {});
 
-		input.focus();	
+		input.focus();
 
 		addEvents();
 

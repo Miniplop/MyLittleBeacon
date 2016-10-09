@@ -3,6 +3,7 @@ var Beacon = require('./lib/beacon');
 'use strict';
 
 const ngrok = require('ngrok');
+const tinyURL = require('tinyurl');
 const Promise = require('promise');
 const express = require('express');
 const app = express();
@@ -10,8 +11,8 @@ const port = process.env.port || 8200;
 const server  = app.listen(port);
 const io = require('socket.io').listen(server);
 
-app.use(express.static('viewer'));
-app.use('/p', express.static('player'));
+app.use('/view', express.static('viewer'));
+app.use('/play', express.static('player'));
 
 var myBeacon = new Beacon();
 
@@ -29,15 +30,15 @@ new Promise(function(resolve, reject){
     });
 })
 .then(url => {
-    console.log("## PROMISE : App available on " + url )
-    url =  url ;
-    myBeacon.advertiseUrl(url , { name: 'Theodo Beacon' });
+    console.log("## PROMISE : App available on " + url + "/view")
+    tinyURL.shorten(url +"/play", function(res) {
+        myBeacon.advertiseUrl(res , { name: 'Kevin Beacon' });
+        console.log("## INFO : Beacon ready to use !");
+    })
 })
 .catch(err => {
     error.log("## PROMISE : " + err)
 })
-
-
 
 io.on('connection', function(socket){
 

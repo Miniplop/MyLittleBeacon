@@ -16,7 +16,7 @@ var __spell_me_WDM = (function(){
 		document.body.setAttribute('data-game-over', 'false');
 		console.log(interval);
 		if(startStraightAway){
-			start();		
+			start();
 		} else {
 			document.body.setAttribute('data-connected', 'false');
 		}
@@ -37,7 +37,7 @@ var __spell_me_WDM = (function(){
 		console.log("decrease");
 		if (timeRemaining > 0){
 			timeRemaining -= 1;
-			timerEl.style.height = window.innerHeight * ((timeRemaining / timeLimit)) + "px";		
+			timerEl.style.height = window.innerHeight * ((timeRemaining / timeLimit)) + "px";
 		} else {
 			end();
 		}
@@ -74,7 +74,7 @@ var __spell_me_WDM = (function(){
 	}
 
 	function updateInput(letter){
-		
+
 		var currentText = userWord.textContent.split('_')[0];
 
 		if(currentWord.textContent[currentText.length] === letter){
@@ -94,7 +94,6 @@ var __spell_me_WDM = (function(){
 
 		} else {
 			socket.emit('wrong', {});
-			newWord();
 		}
 
 	}
@@ -123,7 +122,7 @@ var __spell_me_WDM = (function(){
 		console.log("Initialised");
 
 		socket = io(window.location.origin);
-		
+
 		addEvents();
 
 	}
